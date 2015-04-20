@@ -1,0 +1,33 @@
+
+Plate Model
+
+The main file for the plate model developed in Section 7.5 is
+
+  plate_model_demo.m
+
+which approximates the displacements of a thin plate with
+clamped edges at x = 0, 0 < y < a and y = 0, 0 < x < ell
+and free end conditions at the remaining edges.  A tensored
+cubic spline basis is employed in the Galerkin discretization
+detailed in Section 8.4.  The applied force is uniform in
+space and harmonic in time with frequencies of 10 Hz, 12 Hz,
+19 Hz, 26 Hz and 37 Hz.  The solution at the opint (ell,a) is
+plotted as a function of time. 
+
+Required Functions:
+  bevaluate_plate.m
+  force_plate.m
+  gauss_points.m
+  gauss_weights.m
+  matrix_construct_plate.m
+  parameters_plate.m
+  solution_plate.m
+  yprime_plate.m
+
+Relevant Sections
+  Section 7.5 (Model Development)
+  Section 8.4 (Numerical Approximation)
+
+
+
+

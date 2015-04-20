@@ -1,0 +1,36 @@
+
+Beam Model
+
+The main file for the beam model developed in
+Section 7.4 is
+
+  beam_model_demo.m
+
+which approximates the displacements of a cantilever
+beam with fixed end conditions at x=0 and free end
+conditions at x = L.  A cubic spline basis is used
+to discretize in space and the resulting semidiscrete
+system is integrated in time using the stiff solver
+ode15s.m.  The forcing function consists of a 5 Hz
+signal, that is uniform in space, applied for T=.74
+seconds.  After that, the beam vibrations are allowed
+to decay.  The model includes the input term B used
+in subsequent control design.  The solution is plotted
+as a function of time at the spatial point x = 3*ell/5.
+
+Required Functions:
+  bevaluate_beam.m
+  control_input_beam.m
+  force_beam.m
+  gauss_points.m
+  gauss_weights.m
+  matrix_construct_beam.m
+  parameters_beam.m
+  solution_beam.m
+  yprime_beam.m
+
+Relevant Sections
+  Section 7.4.2 (Model Development)
+  Section 8.3.1 (Numerical Approximation}
+
+

@@ -1,0 +1,167 @@
+
+The MATLAB codes for the rod, beam, unimorph, plate
+and AFM models developed in Chapter7 and approximated
+in Chapter 8 are respectively compiled in the subdirectories
+
+  Rod_Code
+  Beam_Code
+  Unimorph_Code
+  Plate_Code
+  AFM_Code
+
+The files and datafiles required for each of the models are
+described below.
+
+
+*****************************************************************
+
+
+(1) Rod Model
+
+The primary file for the rod code is
+
+  afm_disp_model_demo.m
+
+This provides the option of characterizing the rod using a lumped
+model (spring model) or the PDE model developed in Section 7.3
+using the finite element techniques in Section 8.2.  The input
+is taken to be a prespecified polarization which, for example,
+could be computed using the models detailed in Chapter 2.  The
+displacement is plotted as function of the input polarization.
+
+Note that this code can be directly used to characterize the
+rod employed in a Terfenol-D transducer once units are changed
+and an appropriate input is provided.
+
+Required Data Files:
+  params_disp_ode_demo.dat
+  params_disp_pde_demo.dat
+
+Required Functions:
+  setup_pde.m
+
+Relevant Sections
+  Section 7.3 (Model Development)
+  Section 8.2 (Numerical Approximation)
+
+
+(2) Beam Model
+
+The main file for the beam model developed in 
+Section 7.4 is
+
+  beam_model_demo.m
+
+which approximates the displacements of a cantilever
+beam with fixed end conditions at x=0 and free end
+conditions at x = L.  A cubic spline basis is used
+to discretize in space and the resulting semidiscrete
+system is integrated in time using the stiff solver
+ode15s.m.  The forcing function consists of a 5 Hz
+signal, that is uniform in space, applied for T=.74
+seconds.  After that, the beam vibrations are allowed
+to decay.  The model includes the input term B used
+in subsequent control design.  The solution is plotted
+as a function of time at the spatial point x = 3*ell/5.
+
+Required Functions:
+  bevaluate_beam.m
+  control_input_beam.m
+  force_beam.m
+  gauss_points.m
+  gauss_weights.m 
+  matrix_construct_beam.m
+  parameters_beam.m
+  solution_beam.m
+  yprime_beam.m
+
+Relevant Sections
+  Section 7.4.2 (Model Development)
+  Section 8.3.1 (Numerical Approximation}
+
+
+(3) Unimorph Model
+
+The main file for the unimorph model discussed in Section 7.4.1 is
+
+  unimorph_model_demo.m
+
+Required Data Files:
+  25volt.dat
+  50volt.dat
+  75volt.dat
+  100volt.dat
+
+Required Functions:
+  b_input_unimorph.m
+  bevaluate_unimorph.m
+  force_unimorph.m
+  gauss_points.m
+  gauss_weights.m
+  matrix_construct_unimorph.m
+  parameters_unimorph.m
+  solution_unimorph.m
+  yprime_unimorph.m
+
+Relevant Sections
+  Section 7.4.1 (Model Development)
+  Section 8.3.1 (Numerical Approximation)
+
+
+(4) Plate Model
+
+The main file for the plate model developed in Section 7.5 is
+
+  plate_model_demo.m
+
+which approximates the displacements of a thin plate with
+clamped edges at x = 0, 0 < y < a and y = 0, 0 < x < ell 
+and free end conditions at the remaining edges.  A tensored
+cubic spline basis is employed in the Galerkin discretization
+detailed in Section 8.4.  The applied force is uniform in
+space and harmonic in time with frequencies of 10 Hz, 12 Hz,
+19 Hz, 26 Hz and 37 Hz.  The solution at the opint (ell,a) is
+plotted as a function of time. 
+
+Required Functions:
+  bevaluate_plate.m
+  force_plate.m
+  gauss_points.m
+  gauss_weights.m
+  matrix_construct_plate.m
+  parameters_plate.m
+  solution_plate.m
+  yprime_plate.m 
+
+Relevant Sections
+  Section 7.5 (Model Development)
+  Section 8.4 (Numerical Approximation)
+
+
+(5) AFM Model
+
+The primary file for the AFM model is
+
+  afm_model_demo
+
+This employs a spring model calibrated to produce a response
+that is equivalent to the rod model developed in Section 7.3
+with the nonlinear constitutive relation (7.3).  It yields
+plots analogous to those in Section 7.3.3.  The code which
+incorporates thermal relaxation is slow compared with that
+which neglects relaxation.  Additional code for the polarization
+model can be found in Chapter 2.
+
+Required Data files:
+  params_afm_gen_freq_demo.dat
+  params_afm_nor_demo.dat
+  params_afm_nor_freq_demo.dat
+  params_afm_gen_demo.dat
+
+Required Functions:
+  polar_func.m
+  gauss_weights.m
+  gauss_points.m 
+
+
+

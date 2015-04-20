@@ -1,0 +1,28 @@
+Unimorph Model
+
+The main file for the unimorph model discussed in Section 7.4.1 is
+
+  unimorph_model_demo.m
+
+Required Data Files:
+  25volt.dat
+  50volt.dat
+  75volt.dat
+  100volt.dat
+
+Required Functions:
+  b_input_unimorph.m
+  bevaluate_unimorph.m
+  force_unimorph.m
+  gauss_points.m
+  gauss_weights.m
+  matrix_construct_unimorph.m
+  parameters_unimorph.m
+  solution_unimorph.m
+  yprime_unimorph.m
+
+Relevant Sections
+  Section 7.4.1 (Model Development)
+  Section 8.3.1 (Numerical Approximation)
+
+
