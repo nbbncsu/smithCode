@@ -1,0 +1,48 @@
+
+(1) Homogenized Energy Polarization Model
+
+The main file for the homogenized energy polarization model
+developed in Section 2.6 is
+
+  polarization_model_demo.m
+
+which provides the capability for running the model
+with or without thermal activation using general densities
+or a priori density choices.  The model with thermal activation
+is much slower than that without thermal activation.
+
+Required Data Files:
+  params_pzt_gen_demo.dat
+  params_pzt_log_demo.dat
+  params_pzt_log_freq_demo.dat
+
+Required Functions:
+  polar_func.m
+  gauss_weights.m
+  gauss_weights.m 
+
+Relevant Sections
+  Section 2.6
+
+
+(2) Inverse Polarization Model
+
+The main file for the inverse polarization model detailed
+in Section 2.6.7 is
+
+  inverse_polar_model_demo.m
+
+Required Data Files:
+  params_pzt_gen_demo.dat
+  params_pzt_log_demo.dat
+  params_pzt_log_freq_demo.dat
+
+Required Functions:
+  inverse_polar_func.m
+  gauss_weights.m
+  gauss_weights.m
+
+Relevant Sections
+  Section 2.6.7
+
+
