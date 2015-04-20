@@ -1,0 +1,27 @@
+Rod Model
+
+The primary file for the rod code is
+
+  rod_model_demo.m
+
+This provides the option of characterizing the rod using a lumped
+model (spring model) or the PDE model developed in Section 7.3
+using the finite element techniques in Section 8.2.  The input
+is taken to be a prespecified magnetic field which, for example,
+could be computed using the models detailed in Chapter 4.  The
+displacement is plotted as function of the input time or field. 
+
+Note that this code can be directly used to characterize the
+rod employed in a Terfenol-D transducer or can be modified to
+model the stactked PZT actuators employed in an AFM. 
+
+Required Functions:
+  rod_model_construct.m
+  ferroic_hyst.m
+  ferroic_core.m
+  ferroic_core.c
+
+Relevant Sections
+  Section 7.3 (Model Development)
+  Section 8.2 (Numerical Approximation)
+
