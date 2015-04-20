@@ -1,0 +1,27 @@
+
+(1) Homogenized Energy Magnetization Model
+
+The main file for the homogenized energy magnetization model 
+detailed in Section 4.7 is
+
+  magnetization_model_demo.m
+
+which provides the capability for running the model
+with or without thermal activation using a normal/normal
+density choices.  The model with thermal activation is
+much slower than that without thermal activation.  Additional
+facets of the model are illustrated by the polarization code
+in CHAPTER2.
+
+Required Data Files:
+  params_ter_nor_demo.dat
+  params_ter_nor_freq_demo.dat
+
+Required Functions:
+  mag_func.m
+  gauss_weights.m
+  gauss_weights.m 
+
+Relevant Sections
+  Section 4.7
+

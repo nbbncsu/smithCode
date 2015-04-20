@@ -1,0 +1,37 @@
+
+Homogenized Energy Model for SMA
+
+The main file for the homogenized model developed in Section 5.5 is
+
+  sma_model_demo.m
+
+In its present form, the input is varying stress and temperature
+without Joule heating.  Details regarding the algorithms can be
+found in the citations [321,323] of the text.  The code requires 
+the following files:
+
+Top Level Files
+  polycryst.m - main file for homogenized model
+  matparam.m - initializes 19 material parameters
+  comparam.m - assigns 12 computed parameters
+
+Auxiliary Files
+  gnodes.m - composite 4-pt Gauss-Legendre quadrature nodes
+  gweights.m - 4-pt Gauss-Legendre quadrature weights
+  input_J.m - Joule heating input
+  input_sigma.m - stress input
+  input_Te.m - external temperature input
+  sawtooth.m - sawtooth stress/temperature input
+  mepsv.m - compute strain averages (vectorized)
+  pFuns.m - compute transformation likelihoods
+  phase_ini.m - compute initial phase fractions
+  plotFun.m - adaptive plotting function
+  polyFun.m - compute local (single crystal) quantities for homgenization
+  rateODE.m - phase fraction rate law
+  sigAfun.m - compute transformation stresses
+  sigAfunv.m - compute transformation stresses (vectorized)
+  Tsig.m - compute stress-dependent transformation temperatures
+
+
+
+
