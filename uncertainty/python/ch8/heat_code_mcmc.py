@@ -88,7 +88,7 @@ V = sigma2*la.inv(np.dot(sens_mat,sens_mat.T));
 # Set MCMC parameters
 #
 
-N = 10000;
+N = 10000
 R = la.cholesky(V);
 q_old = np.array([[Q],[h]]);
 SS_old = np.inner(res,res.T);
@@ -97,7 +97,7 @@ sigma02 = sigma2;
 aval = 0.5*(n0 + 15);
 bval = 0.5*(n0*sigma02 + SS_old);
 sigma2 = 1/np.random.gamma(aval,1/bval);
-accept = 0;
+accept = 0
 
 #
 #  Run the Metropolis algorithm for N iterations.
@@ -118,24 +118,23 @@ for i in range(0,int(N)):
    c1 = -Q*f3/(k*gamma);
    c2 = Q/(k*gamma) + c1;
    uvals_data = c1*np.exp(-gamma*xdata) + c2*np.exp(gamma*xdata) + u_amb;
-   res = data - uvals_data;
-   SS_new = np.inner(res,res.T);
-   u_alpha = np.random.random(1);
+   res = np.array([data - uvals_data])
+   SS_new = np.dot(res,res.T);
+   u_alpha = np.random.uniform(0,1,(1,1))
    term = np.exp(-.5*(SS_new-SS_old)/sigma2);
-   alpha = min(1,term);
+   alpha = min(1.0,term);
    if u_alpha < alpha:
       Q_MCMC[0,i] = Q
       Q_MCMC[1,i] = h
       q_old = q_new;
       SS_old = SS_new;
-      accept = accept + 1;
+      accept+=1
    else:
       Q_MCMC[0,i] = q_old[0,0]
       Q_MCMC[1,i] = q_old[1,0]
    Sigma2[i] = sigma2;
    bval = 0.5*(n0*sigma02 + SS_old);
    sigma2 = 1/np.random.gamma(aval,1/bval);
-
 Qvals = Q_MCMC[0,0:];
 hvals = Q_MCMC[1,0:];
   
@@ -156,8 +155,7 @@ density2 = stats.gaussian_kde(hvals)
 hmesh = np.linspace(h_min,h_max,16384)
 density_h = density2.evaluate(hmesh)
 
-
-print accept/N
+print float(accept)/N
 
 #
 # Plot solutions
