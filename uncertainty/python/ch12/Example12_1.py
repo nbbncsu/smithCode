@@ -33,7 +33,7 @@ final_cu_data = np.loadtxt('final_cu_data.txt')
 data_cu = np.array(final_cu_data[1:16]);
 xdata = np.array([10,14,18,22,26,30,34,38,42,46,50,54,58,62,66]);
 u_amb_cu = final_cu_data[16];
-x0=1;xf=70;xstep=0.1; xvals = np.linspace(x0,xf,(xf-x0)/xstep+1);
+x0=0;xf=70;xstep=0.1; xvals = np.linspace(x0,xf,(xf-x0)/xstep+1);
 
 #
 # Input dimensions and material constants
